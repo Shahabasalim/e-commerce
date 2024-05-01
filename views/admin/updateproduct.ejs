@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/updateproduct.css">
+</head>
+<body>
+    <main class="main-container">
+        <form action="/updateproduct/<%=productData.id%>" method="POST" enctype="multipart/form-data">
+              <div class="formdetails">
+              <label for="product_name">Product Name:</label>
+              <input type="text" id="product_name" name="product_name" value="<%=productData.product_name%>" required>
+  
+              <label for="product_description">Product Description:</label>
+              <textarea id="product_description" name="product_description"  required><%=productData.product_description%></textarea>
+  
+              <label for="product_price">Product Price:</label>
+              <input type="number" id="product_price" name="product_price" value="<%=productData.product_price%>"required>
+  
+              <label for="product_image">Product Image URL:</label>
+              <input type="file" multiple accept='image/*' id="product_image" name="image"  required>
+  
+              <label for="product_quality">Product Quantity</label>
+              <input type="number" id="quantity" name="quantity"   value="<%=productData.quantity%>" required>
+  
+              <label for="product_discount">Product Discount</label>
+              <input type="number" id="discount" name="discount"  value="<%=productData.discount%>" required>
+  
+              <label for="product_size">Product Size</label>
+              <div style="border: 1px solid rgba(128, 128, 128, 0.485); height: 30px; border-radius: 4px; display: flex; align-items: center;">
+                <input type="checkbox" name="size" id="sizeS" value="S">
+                <label for="sizeS">S</label>
+                <input type="checkbox" name="size" id="sizeM" value="M">
+                <label for="sizeM">M</label>
+                <input type="checkbox" name="size" id="sizeL" value="L">
+                <label for="sizeL">L</label>
+                <input type="checkbox" name="size" id="sizeXL" value="XL">
+                <label for="sizeXL">XL</label>
+            </div>
+            
+              
+          
+  
+              <button type="submit">Edit Product</button>
+          </div>
+          </form>
+</body>
+</html>

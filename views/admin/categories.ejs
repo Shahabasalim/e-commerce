@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="/css/categories.css">
+    <title>Categories</title>
+
+</head>
+
+<body>
+    <h2>Categories</h2>
+    <table id="categoriesTable">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Subcategory</th>
+                <th>Image</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% categories.forEach(category=> { %>
+                <tr class="categoryRow row<%= category._id %>">
+                    <td class="category">
+                        <%= category.category %>
+                    </td>
+                    <td class="subcategory">
+                        <%= category.subcategory %>
+                    </td>
+                    <td class="image"><img src="/image/<%= category.image %>"></td>
+                    <td class="options">
+                        <button type="submit" onclick="deleteCategory('<%= category._id %>')"> Delete</button>
+                    </td>
+
+                </tr>
+                <% }); %>
+
+        </tbody>
+    </table>
+    <script>
+        async function deleteCategory(id) {
+            console.log(id);
+            try {
+                const swalWithBootstrapButtons = Swal.mixin({
+                    customClass: {
+                        confirmButton: "btn btn-success",
+                        cancelButton: "btn btn-danger"
+                    },
+                    buttonsStyling: false
+                });
+                swalWithBootstrapButtons.fire({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonText: "Yes, delete it!",
+                    cancelButtonText: "No, cancel!",
+                    reverseButtons: true
+                }).then(async (result) => {
+                    if (result.isConfirmed) {
+                        const response = await axios.delete(`/deletecategory/${id}`);
+                        if (response) {
+                            console.log('hai shahaba');
+                            document.querySelector(`.row${id}`).remove();
+                        }
+                        swalWithBootstrapButtons.fire({
+                            title: "Deleted!",
+                            text: "Your file has been deleted.",
+                            icon: "success"
+                        });
+                    } else if (
+                        result.dismiss === Swal.DismissReason.cancel
+                    ) {
+                        swalWithBootstrapButtons.fire({
+                            title: "Cancelled",
+                            text: "Your imaginary file is safe :)",
+                            icon: "error"
+                        });
+                    }
+                });
+
+            } catch (error) {
+                console.error(error);
+            }
+        }
+    </script>
+</body>
+</html>

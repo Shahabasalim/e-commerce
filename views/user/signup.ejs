@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register an account</title>
+    <link rel="shortcut icon" href="#" type="image/x-icon" />
+    <!-- Bootstrap css cdn link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- end of Bootstrap css cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    <!-- Style css -->
+    <link rel="stylesheet" href="/css/signup.css" />
+    <!-- end of Style css -->
+</head>
+<body>
+
+    <!-- main content -->
+    <main>
+        <section>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 m-0 loginsection d-flex align-items-center justify-content-center">
+                        <div class="loginbox">
+                            <div class="headingLogin d-inline-block">
+                                <p class="heading">Sign Up</p>
+                            </div>
+                            <!-- <div class="error p-0 d-inline-block">
+                                <p><i class="fa-solid fa-circle-exclamation" style="color: #ff0000;"></i> Invalid credentials</p>
+                            </div> -->
+                            <div class="inputForm d-inline-block">
+                                <form action="/signup" method="POST">
+                                    <i class="fa-solid fa-user"></i>
+                                    <!-- <label class="d-block" for="fullName">Fullname</label> -->
+                                    <i class="icon fas fa-envelope mail icon"></i>
+                                    <input class="d-block" type="name" name="name" placeholder="Name"  required />
+                                    <!-- <label class="d-block" for="email">Email</label> -->
+                                    <i class="icon fas fa-envelope mail icon"></i>
+                                    <input class="d-block" type="email" name="email" placeholder="Email"  required />
+                                    <!-- <label class="d-block" for="phoneNumber">Phone</label> -->
+                                    <i class="error error-icon fas fa-exclamation-circle phone icon"></i>  
+                                    <input class="d-block" type="number" name="phoneNumber" placeholder="Phone" required/>
+                                    <!-- <label class="d-block" for="password">Password</label> -->
+                                    <i class="icon fas fa-lock pass icon"></i>
+                                    <input class="d-block" type="password" name="password" placeholder="Password" required/>
+                                    <!-- <label class="d-block" for="confirmPassword">Confirm Password</label> -->
+                                    <i class="icon fas fa-lock  confirmPassword icon"></i>
+                                    <input class="d-block" type="password" name="confirmPassword" placeholder="Confirm password" required/>
+                                    <div class="text-center m-0">
+                                        <button class="loginBtn" type="submit">Create Account</button>
+                                    </div>
+                                    
+                                    
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- end of main content -->
+
+
+
+    <!-- custom js -->
+    <script src="./js/registerNewAccount.js"></script>
+    <!-- end of custom js -->
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/23d1247997.js" cross-origin="anonymous"></script>
+    <!-- end of fontawesome -->
+    <!-- Bootstrap script file -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!--end of Bootstrap script file -->
+</body>
+</html>

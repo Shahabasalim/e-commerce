@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+      <form action="/login" method="post" class="login_form">
+        <h1>Welcome back!</h1>
+        <p>Login to your account.</p>
+        <input type="email" name="email" placeholder="Email address">
+        <input type="password" name="password" placeholder="Password">
+        <button type="submit">Login</button>
+        <% if (messages.error) { %>
+          <p style="color: red;">
+              <%= messages.error %>
+          </p>
+      <% } %>
+      <% if (messages.success) { %>
+          <p style="color: green;">
+              <%= messages.success %>
+          </p>
+      <% } %>
+      
+      </form>
+    
+</body>
+</html>

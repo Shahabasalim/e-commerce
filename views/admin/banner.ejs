@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="display:flex; gap:50px; padding:20px">
+        <div style="width:50%">
+            <table id="bannerTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% banners.forEach(banner => { %>
+                        <tr>
+                            <td><%= banner.name %></td>
+                            <td><%= banner.description %></td>
+                            <td><img src="<%= banner.image %>" alt="<%= banner.name %>" style="max-width: 100px;"></td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+</body>
+</html>

@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lemon&family=Ubuntu:wght@300;400;500;700&display=swap');
+
+*::after,
+*::before,
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body{
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    background-color: white;
+}
+
+.loginsection{
+    width: 100vw;
+    min-height: 100vh;
+    padding: 8% 0;
+}
+.loginbox{
+    position: relative;
+    width: 25rem;
+    height: 34rem;
+    background-color: #FFF;
+    stroke-width: 1px;
+    stroke: #E0E0E0;
+    filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 9px;
+    font-family: 'Ubuntu', sans-serif;
+    line-height: normal;
+    font-style: normal;
+    padding: 30px 51px;
+}
+.headingLogin{
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+.headingLogin p{
+    color: #000;
+    font-size: 35px;
+    font-weight: 600;
+    line-height: normal;
+}
+.error{
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+}
+.error p{
+    margin-top: 10px;
+    color: red;
+    font-size: 0.8125rem;
+    font-weight: bold;
+}
+.inputForm{
+    width: 100%;
+    padding: 1.5rem 0 0;
+}
+.inputForm label{
+    color: #000;
+    font-size: 0.8125rem;
+    font-weight: 400;
+}
+.inputForm input{
+    width: 100%;
+    height: 3.3rem;
+    font-size: medium;
+    padding: 10px 26px;
+    outline: none;
+    border-radius: 8px;
+    margin: 0.75rem 0;
+    border: 1px solid #bfbfbf;
+    caret-color: #5372F0;
+    color: #bfbfbf;
+    background: #FFF;
+    transition: all 0.2s ease;
+}
+
+.inputForm input:focus {
+    border-color: #5372F0;
+}
+
+.inputForm div{
+    margin-bottom: 1.5rem;
+}
+.loginBtn{
+    margin-top: 0.75rem;
+    color: #fff;
+    font-size: 0.9375rem;
+    font-weight: bold;
+    border-radius: 7px;
+    width:272px;
+    height: 55px;
+    background: #5372F0;
+    border: transparent;
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 600px) {
+    .loginbox{
+        width: 21rem;
+    }
+    .loginBtn{
+        width:142px;
+        height: 42px;
+    }
+    .input orm input{
+        font-size: small;
+    }
+    .useroptions ul li:nth-child(2){
+        display: none;
+    }
+    .error p{
+        margin-top: 10px;
+        color: red;
+        font-size: 0.75rem;
+        font-weight: bold;
+    }
+    .inputForm a{
+        color: rgba(0, 0, 255, 0.75);
+        font-size: 0.7rem;
+        font-weight: 400;
+        text-decoration-line: underline;
+    }
+    .registerText a{
+        color: white;
+        font-size: 0.7rem;
+        font-weight: 500;
+        text-decoration: underline;
+    }
+}
+
+
+.confirmPassword{
+    position: absolute;
+    top: 400px;
+    left: 58px;
+}
+
+.pass{
+    position: absolute;
+    top: 335px;
+    left: 58px;
+}
+.fa-user{
+    position: absolute;
+    top:140px;
+    left:58px;
+    color: #bfbfbf;
+}
+
+.mail{
+    position: absolute;
+    top: 208px;
+    left: 60px; 
+}
+
+.phone{
+    position: absolute;
+    top: 270px;
+    left: -132px; 
+}
+
+.icon{
+    color: #bfbfbf;
+    transition: color 0.2s ease;
+}
+
+input:focus~.mail {
+    color: #bfbfbf;
+}
+
+
+input:focus~.mail {
+    color: #5372F0;
+}
+
+input:focus~.phone {
+    color: #5372F0;
+}
+
+input:focus~.pass {
+    color: #5372F0;
+}
+
+input:focus~.confirmPassword {
+    color: #5372F0;
+}
+
+
+
+

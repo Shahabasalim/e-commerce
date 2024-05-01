@@ -1,0 +1,64 @@
+/* Styles for main-container */
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* Styles for formdetails */
+.formdetails {
+    width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Styles for labels */
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Styles for input fields */
+input[type="text"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+/* Styles for file input */
+input[type="file"] {
+    margin-bottom: 10px;
+}
+
+/* Styles for checkboxes and labels */
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+label[for^="size"] {
+    margin-right: 15px;
+}
+
+/* Styles for the submit button */
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+

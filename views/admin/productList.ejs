@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <link rel="stylesheet" href="/assets/css/admin.css/productlist.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        table {
+            width: 100%;
+            margin-top: 10px;
+            border-collapse: collapse;
+        
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #892727;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Product List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Image</th>
+                <th>Quantity</th>
+                <th>Discount</th>
+                <th>Size</th>
+                <th>edit</th>
+                <th>delete</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <% products.forEach(product => { %>
+                <tr>
+                    <td><%= product.product_name %></td>
+                    <td><%= product.product_description %></td>
+                    <td><%= product. product_price %></td>
+                    <td><img src="/image/<%= product.Image %>" alt="<%= product.productName %>" style="max-width: 100px;"></td>
+                    <td><%= product.quantity %></td>
+                    <td><%= product.discount %></td>
+                    <td><%= product.size %></td>
+                    <td>
+                       <a href="/updateproduct/<%=product.id %>"><i class="fa-regular fa-pen-to-square"></i></a> 
+                    </td>
+
+                    <td>
+                        <a href="/deleteproduct/<%=product.id%>"><i class="fa-solid fa-trash"></i></a>
+                    </td>
+                </tr>
+                
+            <% }); %>
+        </tbody>
+    </form>
+    </table>
+</body>
+</html>

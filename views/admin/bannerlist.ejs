@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stylish Form Page</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+
+    /* Container Styles */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 40px;
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Form Styles */
+    .form-group {
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      color: #444;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+      font-family: 'Montserrat', sans-serif;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #6c63ff;
+    }
+
+    input[type="file"] {
+      display: block;
+      margin-top: 10px;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      background-color: #6c63ff;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      font-family: 'Montserrat', sans-serif;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #5753d1;
+    }
+    table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+
+    /* Responsive Styles */
+    @media (max-width: 767px) {
+      .container {
+        padding: 40px 20px;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div style="display:flex; gap:50px; padding:20px">
+        <div style="width:50%">
+            <table id="bannerTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% banners.forEach((banner) => { %>
+                        <tr>
+                            <td><%= banner.name %></td>
+                            <td><%= banner.description %></td>
+                            <td><img src="/image/<%= banner.image %>" style="max-width: 100px;" width="100%" height="100%"></td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+      <div class="container" style="width:50%">
+        <h1 style="text-align: center; color: #6c63ff; margin-bottom: 40px;">Banner Form</h1>
+        <form action="/bannerlist" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="5" placeholder="Enter a description" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="image">Image:</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+   
+</body>
+</html>

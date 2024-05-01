@@ -1,0 +1,36 @@
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 100px; /* Adjust as needed */
+    color: wheat;
+  }
+  
+  /* Table Header */
+  th {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+  }
+  
+  /* Table Rows */
+  tr {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Alternate Row Color */
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Table Data Cells */
+  td {
+    padding: 10px;
+  }
+  
+  /* Hover Effect */
+  tr:hover {
+    background-color: #f2f2f2;
+  }
+  

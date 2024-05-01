@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/categories.css">
+    <title>Categories</title>
+    <style>
+        /* Additional inline styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            text-transform: uppercase;
+        }
+        .category, .subcategory, .options {
+            width: 20%;
+        }
+        .image {
+            width: 20%;
+        }
+        .image img {
+            max-width: 100%;
+            height: auto;
+        }
+        .categoryRow:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .categoryRow:hover {
+            background-color: #e0e0e0;
+        }
+        .options {
+            text-align: center;
+        }
+        .editCategory, .deleteCategory {
+            text-decoration: none;
+            color: #007bff;
+            margin: 0 5px;
+        }
+        .editCategory:hover, .deleteCategory:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h2>Categories</h2>
+    <table id="categoriesTable">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Subcategory</th>
+                <th>Image</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="categoryRow">
+                <td><%=category</td>
+                <td class="subcategory">Subcategory 1</td>
+                <td class="image"><img src="/image/image1.jpg" alt="Image 1"></td>
+                <td class="options">
+                    <a href="#" class="editCategory">Edit</a>
+                </td>
+                <td class="options">
+                    <a href="#" class="deleteCategory">Delete</a>
+                </td>
+            </tr>
+            <tr class="categoryRow">
+                <td class="category">Category 2</td>
+                <td class="subcategory">Subcategory 2</td>
+                <td class="image"><img src="/image/image2.jpg" alt="Image 2"></td>
+                <td class="options">
+                    <a href="#" class="editCategory">Edit</a>
+                </td>
+                <td class="options">
+                    <a href="#" class="deleteCategory">Delete</a>
+                </td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>  
+</body>
+</html>
