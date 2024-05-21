@@ -6,7 +6,13 @@ const { error } = require("console")
 
 module.exports={
     adminHomeGet:async(req,res)=>{
-        res.render('admin/adminHome')
+        let Cart;
+        if(req.session.email){
+            Cart=true
+        }else{
+            Cart=false;
+        }
+        res.render('admin/adminHome',Cart)
     },
     adminloginget:(req,res)=>{
         res.render('admin/adminlogin')

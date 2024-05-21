@@ -3,7 +3,7 @@ module.exports={
         res.render('user/contact')
     },
     contactpost:(req,res)=>{
-        res.render('/home1')
+        res.render('/login')
     }
 }
 

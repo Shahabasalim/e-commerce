@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/viewcart.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class=" w-lvw h-screen bg-white">
+        <div>
+            <h1 class="text-center text-3xl border-l font-bold">Cart</h1>
+        </div>
+        <div class="w-100 h-auto flex flex-grow p-20">
+            <% viewcart.forEach((cart) => { %>
+               
+        <div class="w-[300px] w-full lg:max-w-full lg:flex h-[200px]  ">
+                <div class="h-screen lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style="background-image: url('/image/<%= cart.productId.Image[0] %>')">
+                </div>
+                <div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+                  <div class="mb-8">
+                    <p class="text-sm text-gray-600 flex items-center">
+                      <svg class="fill-current text-gray-500 w-3 h-3 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z" />
+                      </svg>
+                      Cart Added
+                    </p>
+                    <div class="text-gray-900 font-bold text-xl mb-2"><%= cart.productId.product_name %></div>
+                    <p class="text-gray-700 text-base"><%= cart.productId.product_price %><p>
+                      <p><%= cart.productId.totalprice %></p>
+                        <button class="bg-gray-300 w-[70px] h-[40px] rounded text-sm">Remove</button>
+                  </div>
+                </div>
+              </div>
+              <% }); %>
+        </div>
+        <div class="w-full flex justify-center">
+            <div class="w-80 flex items-center justify-around">
+                  <button class=" bg-gray-300 w-[100px] h-[40px] rounded">Checkout</button>
+            </div>
+        </div>
+       
+          
+
+
+
+    </div>
+</body>
+</html>
+
+

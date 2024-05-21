@@ -10,7 +10,7 @@ const profile=require("../controller/userController")
 const wishlist=require("../controller/wishlist")
 const productdeatils=require('../controller/productdeatils')
 
-router.get('/',user.userHomeGet1)
+router.get('/',user.userHomeGet)
       // .get('/home2',user.userHomeGet2)
       // .get('/home3',user.userHomeGet3)
       .get('/about',user.aboutget)
@@ -24,6 +24,8 @@ router.get('/',user.userHomeGet1)
       .get('/wishlist',wishlist.wishlistGet)
       .post('/addToWishlist/:id',wishlist.addToWishlist)
       .get('/productdetail',productdeatils.productdetailsget)
+      .get("/viewcart",cart.viewcartget)
+      .post('/addToCart/:id',cart.addToCart)
 
 
 

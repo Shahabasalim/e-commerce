@@ -16,6 +16,7 @@ module.exports={
         const email= req.body.email;
         const user = await signupSchema.findOne({email:email})
         req.session.email=user.email
+        req.session.userId=user._id
         res.redirect('/');
     },
     

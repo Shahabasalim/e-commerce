@@ -75,12 +75,8 @@
 					<div class="menu-desktop">
 						<ul class="main-menu">
 							<li>
-								<a href="/cart">Home</a>
-								<ul class="sub-menu">
-									<li><a href="/cart">Homepage 1</a></li>
-									<li><a href="/home2">Homepage 2</a></li>
-									<li><a href="/home3">Homepage 3</a></li>
-								</ul>
+								<a href="/">Home</a>
+								
 							</li>
 
 							<li>
@@ -257,9 +253,7 @@
 					<br>
 					<p>Email : <span</span><%= data.email %></p>
 					<br>
-					<p>Phone : <span</span><%= data.phone %></p>
-					<br>
-					<p>Address : <span></span><%= data.address %></p>
+					<p>Address : <span></span><%= address[0].address.locality %>, <%= address[0].address.address %>, <%= address[0].address.district %>, <%= address[0].address.pincode %></p>
 				  </div>
 				  <br>
 				  <form action="/login" method="post">
@@ -314,4 +308,4 @@
 	<script src="js/main.js"></script>
 
 </body>
-</html> -->
+</html> 

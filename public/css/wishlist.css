@@ -3,12 +3,18 @@
   box-sizing: border-box;
   font-family: 'Poppins',sans-serif;
 }
+
 body{
   background-color: black;
   color: white;
   display: flex;
   flex-direction: column;
 }
+.logo{
+  max-width: 20%;
+  max-height: 20%;
+}
+
 .wishlistContainer{
   margin-bottom: 50px;
 }
@@ -24,6 +30,10 @@ body{
   gap: 10px;
 }
 .nil img{
+  height: 100px;
+  width: 100px;
+}
+.img{
   height: 100px;
   width: 100px;
 }
@@ -79,6 +89,13 @@ li button{
   border: none;
   border-radius: 5px;
   background-color: rgb(35, 34, 34);
+}
+.cl1{
+  padding-left: 100px;
+
+}
+.stext-105{
+  padding-left: 100px;
 }
 .remove:hover{
   background-color:rgb(40, 40, 40) ;

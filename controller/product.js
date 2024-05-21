@@ -9,8 +9,13 @@ adminaddproductget:(req,res)=>{
 },
 adminaddproductpost:async (req,res)=>{
     const image=req.files.map((img)=>img.filename);
+    const {product_price,discount} = req.body;
+    const discounted =product_price*discount/100;
+    const discountedValue=product_price-discounted
+    const roundedValue = Math.round(discountedValue)  
+    console.log(discountedValue,roundedValue);
     try{
-       const newProduct = await productSchema.create({ ...req.body,Image:image})
+       const newProduct = await productSchema.create({ ...req.body,Image:image, totalprice:roundedValue ,discount:discounted})
         res.redirect('/addproduct')
     }catch(err){
         console.error(err);
