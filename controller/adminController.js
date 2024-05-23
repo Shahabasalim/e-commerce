@@ -17,7 +17,7 @@ module.exports={
     adminloginget:(req,res)=>{
         res.render('admin/adminlogin')
     },
-    adminloginpost:(req,res)=>{
+    adminloginpost:(req,res)=>{ 
         res.redirect('/adminHome')
     },
     adminsignupget:(req,res)=>{

@@ -16,6 +16,7 @@ module.exports = {
         const userId=req.session.userId;
         const Cart=await cart.findOne({userId}).populate({path:"products.productId",model:"product"})
         // console.log(Cart.total);
+        
         res.render("user/home1",{ products,Cart, isUserAvailable})
     },
     userhomepost:(req,res)=>{

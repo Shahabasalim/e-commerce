@@ -9,12 +9,11 @@ const address=require("../controller/userController")
 const profile=require("../controller/userController")
 const wishlist=require("../controller/wishlist")
 const productdeatils=require('../controller/productdeatils')
+const checkout=require('../controller/checkout')
 
 router.get('/',user.userHomeGet)
-      // .get('/home2',user.userHomeGet2)
-      // .get('/home3',user.userHomeGet3)
       .get('/about',user.aboutget)
-      .get('/cart',cart.cartget)
+      // .get('/user/home1',cart.cartget)
       .get('/contact',contact.contactget)
       .get('/product',product.productget)
       .get('/address',address.addressGet)
@@ -26,6 +25,9 @@ router.get('/',user.userHomeGet)
       .get('/productdetail',productdeatils.productdetailsget)
       .get("/viewcart",cart.viewcartget)
       .post('/addToCart/:id',cart.addToCart)
+      .get('/checkout',checkout.checkoutget)
+      .post('/checkoutpost',checkout.checkoutpost)
+      
 
 
 

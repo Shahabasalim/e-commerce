@@ -47,41 +47,25 @@ module.exports = {
             res.status(202).json("message:false")
         }
     },
-    cartget:async(req,res)=>{
-        if (req.session.email) {
-            const email = req.session.email;
-            const user = await User.findOne({ email: email });
-            const userobjId = user._id;
-            const cartData = await cartSchema.findOne({ userId: userobjId }).populate('products.productId');
-            if (cartData && cartData.products) {
-                cartCount = cartData.products.length;
-                const cart = await cartSchema.updateOne(
-                    {userId:userobjId},
-                    {
-                        productDiscounted:totalAmount,
-                        productPrice:subtotal,
-                        // productDiscountedAmount:discountAmount
-                    }
-            )}
-            res.render('user/cart', { cartData ,totalAmount ,subtotal });
-
-        }else {    
-            res.redirect('/userLogin');
-        }
-    },
     
     viewcartget: async (req, res) => {
         try {
             if (req.session.email) {
                 const userid = req.session.userId;
+                console.log('userid:',userid);
                 const viewcart = await cartSchema.findOne({ userId: userid }).populate({ path: "products.productId", model: "product" });
-                const total =viewcart?.total || 500
+                const totalAmount=viewcart?.products.reduce((acc,data)=>{
+                    return acc+=data.productId.product_price 
+                      
+                },0)
+                // console.log(totalAmount ,'shahaba jfjldkj djilj');  
                 
+
                 if (viewcart && viewcart.products) {
-                    res.render('user/viewcart', { viewcart: viewcart.products });
+                    res.render('user/viewcart', { viewcart: viewcart.products ,total:totalAmount });
                     
                 } else {
-                    res.render('user/viewcart', { viewcart: [] });
+                    res.render('user/viewcart', { viewcart: [] });  
                 }
             } else {
                 res.redirect('/login');
@@ -93,6 +77,9 @@ module.exports = {
             res.status(500).send("Internal Server Error");
         }
         
+    },
+    viewcartpost:(req,res)=>{
+        res.render('/checkout')
     }
 }
 
