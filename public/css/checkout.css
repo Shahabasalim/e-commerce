@@ -17,6 +17,10 @@ body {
 body::-webkit-scrollbar {
   display: none;
 }
+.cartBody {
+
+}
+
 p {
   margin: 0;
 }
@@ -257,6 +261,8 @@ a {
 .mainContainer {
   border: 1px solid #e0e0e0;
   background: #fff;
+  margin-top: 50px;
+
 }
 .cartHead {
   padding: 1.5rem 1.25rem;
@@ -271,7 +277,8 @@ a {
   line-height: normal;
 }
 .cartBody {
-  padding: 1.5rem 1.25rem;
+  padding: 2rem 1.5rem;
+  margin-top: 30px;
 }
 .contentDiv {
   width: 100%;
@@ -512,7 +519,7 @@ a {
   line-height: normal;
   border: transparent;
   outline: none;
-  background-color: #0f0;
+  background-color: rgb(196, 203, 196);
   padding: 0.4rem 1.25rem;
   top: 20px;
   right: 20px;

@@ -56,8 +56,11 @@ module.exports = {
                 const viewcart = await cartSchema.findOne({ userId: userid }).populate({ path: "products.productId", model: "product" });
                 const totalAmount=viewcart?.products.reduce((acc,data)=>{
                     return acc+=data.productId.product_price 
-                      
                 },0)
+
+                req.session.price=totalAmount
+                console.log( req.session.price);
+               
                 // console.log(totalAmount ,'shahaba jfjldkj djilj');  
                 
 

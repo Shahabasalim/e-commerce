@@ -28,6 +28,7 @@ router.get('/',user.userHomeGet)
       .get('/checkout',checkout.checkoutget)
       .post('/checkoutpost',checkout.checkoutpost)
       
+      
 
 
 

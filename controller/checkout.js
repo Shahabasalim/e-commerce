@@ -8,38 +8,40 @@ const mongoose=require('mongoose');
 const { log } = require('console');
 
 module.exports={
-    checkoutget:async(req,res)=>{
-      if (req.session.email) {
+ checkoutget : async (req, res) => {
+    if (req.session.email) {
         try {
-          const email = req.session.email;
-          const user = await signupSchema.findOne({ email: email });
-          const userId = user._id;
-          const cartData = await cartSchema.findOne({ userId: userId });
-          // const checkOut = await checkoutSchema.findOne({ userId: userId });
-  
-  
-          // if (!checkout) {
-          //   await checkoutSchema.create({
-          //     userId: userId,
-          //     total: itemPrice,
-          //     address: [],
-          //   });
-          // }
+            const email = req.session.email;
+            const user = await signupSchema.findOne({ email: email });
+            if (!user) {
+                console.log("User not found, redirecting to login");
+                return res.redirect("/login");
+            }
 
-  
-          const userprofile = await addressSchema.findOne({ userId: userId });
-          const profileData = userprofile?.address;
-  
-          // console.log(profileData);
-  
-          res.render("user/checkOut", { cartData , profileData });
+            const userId = user._id;
+            const cartData = await cartSchema.findOne({ userId: userId });
+
+            const userprofile = await addressSchema.find({ userId: userId });
+
+            console.log("User Profile:", userprofile);
+
+            if (userprofile && userprofile.address && userprofile.address.length > 0) {
+                console.log("Addresses found:", userprofile.address.length);
+            } else {
+                console.log("No addresses found for the user");
+            }
+
+            const addresses = userprofile 
+
+            res.render("user/checkOut", { cartData, addresses });
         } catch (err) {
-          console.log(err);
+            console.error('Error fetching user data:', err);
+            res.status(500).send('Internal Server Error');
         }
-      } else {
+    } else {
         res.redirect("/login");
-      }
-    },
+    }
+},
     
         checkoutpost:async(req,res)=>{
           try {
@@ -100,6 +102,7 @@ module.exports={
     }
   
   },
+
 }
         
     
