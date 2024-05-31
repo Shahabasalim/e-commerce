@@ -21,17 +21,9 @@ module.exports={
             const userId = user._id;
             const cartData = await cartSchema.findOne({ userId: userId });
 
-            const userprofile = await addressSchema.find({ userId: userId });
+            const addresses = await addressSchema.findOne({ userId: userId });
 
-            console.log("User Profile:", userprofile);
-
-            if (userprofile && userprofile.address && userprofile.address.length > 0) {
-                console.log("Addresses found:", userprofile.address.length);
-            } else {
-                console.log("No addresses found for the user");
-            }
-
-            const addresses = userprofile 
+            console.log("User Profile:", addresses) 
 
             res.render("user/checkOut", { cartData, addresses });
         } catch (err) {
@@ -64,6 +56,7 @@ module.exports={
           const cartdetail = await cartSchema.findOne({ userId: userId }).populate("products.productId");
           const checkoutData = await checkOut.findOne({ userId: userId });
           const total = checkoutData.total;
+          
   
           const newData = new orderSchema({
             userId: userId,
@@ -100,8 +93,20 @@ module.exports={
       console.error("Server Error: ", err);
       return res.status(500).json({ success: false, message: "Internal Server Error" });
     }
-  
+       
   },
+
+  //function to change address in checkout page
+  changeAddress: async (req, res) => {
+    const {addressId} = req.body
+    const email = req.session.email
+    try {
+      const selectedAddress = await addressSchema.findOne({'address._id': addressId},{'address.$': 1})
+      res.status(200).json({address: selectedAddress})
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
 }
         

@@ -439,15 +439,17 @@ a {
   height: 24px;
 }
 .orderSummary {
-  margin-left: auto;
+  margin-left: 800px;
   width: 80%;
   border: 1px solid #e0e0e0;
   background: #fff;
-  margin-bottom: 2rem;
+  /* margin-bottom: 200px; */
+  /* margin-top:-200px; */
 }
 .orderHeading {
   padding: 1.2rem;
   border-bottom: 1px solid #e0e0e0;
+  mar
 }
 .orderHeading h2 {
   margin: 0;
@@ -951,6 +953,14 @@ footer {
     align-items: center;
   }
   .orderSummary {
+    /* margin-left: auto; */
+    width: 80%;
+    border: 1px solid #e0e0e0;
+    background: #fff;
+    margin-bottom:2 rem;
+    margin-left: 600px;
+  }
+  .orderSummary {
     margin-left: 0;
     width: 100%;
     border: 1px solid #e0e0e0;
@@ -1024,6 +1034,7 @@ footer {
     font-size: 0.75rem;
     font-weight: bold;
   }
+
   .inputForm a {
     color: rgba(0, 0, 255, 0.75);
     font-size: 0.7rem;

@@ -27,6 +27,7 @@ router.get('/',user.userHomeGet)
       .post('/addToCart/:id',cart.addToCart)
       .get('/checkout',checkout.checkoutget)
       .post('/checkoutpost',checkout.checkoutpost)
+      .post('/checkout/change-address', checkout.changeAddress)
       
       
 

@@ -36,45 +36,63 @@ module.exports = {
     },
 
 
-    addressPost: async (req, res) => {
+    
+ addressPost : async (req, res) => {
         if (req.session.email) {
-            const userid = req.session.userId
+            const userid = req.session.userId;
             console.log(userid);
-            const { name,locality, district, address, address2, city, state, number, pincode, } = req.body;
+            const { name, locality, district, address, address2, city, state, number, pincode } = req.body;
+            
             try {
-                const userAddress = new addressSchema({
-                    userId: userid,
-                    address: {
-                        name:name,
+                const userAddress = await addressSchema.findOne({ userId: userid });
+                if (userAddress) {
+                    // User exists, push the new address to the addresses array
+                    userAddress.address.push({
+                        name: name,
                         locality: locality,
                         district: district,
                         address: address,
                         address2: address2,
                         city: city,
-                        State: state,
-                        phonenumber:number,
+                        state: state,
+                        phonenumber: number,
                         pincode: pincode
-                    }
-                });
-               
-                await userAddress.save();
+                    });
+                    await userAddress.save();
+                } else {
+                    // User does not exist, create a new document
+                    const newUserAddress = new addressSchema({
+                        userId: userid,
+                        address: [{
+                            name: name,
+                            locality: locality,
+                            district: district,
+                            address: address,
+                            address2: address2,
+                            city: city,
+                            state: state,
+                            phonenumber: number,
+                            pincode: pincode
+                        }]
+                    });
+                    await newUserAddress.save();
+                }
                 res.redirect('/profile');
             } catch (error) {
                 console.error(error);
                 res.status(500).send("Error saving address");
             }
         } else {
-            res.redirect('/login')
+            res.redirect('/login');
         }
-
-    },
+    },    
     profileget: async (req, res) => {
         if (req.session.email) {
             const userId = req.session.userId
-            const user = await addressSchema.find({ userId: userId })
+            const user = await addressSchema.findOne({ userId: userId })
             const signup=await signupSchema.findOne({email:req.session.email})
-            // console.log(user[0].address);
-            res.render('user/profile', { data:signup, address:user || ''  })
+            // console.log(user.address[0].name);
+            res.render('user/profile', { data:signup, addresses:user || ''  })
         } else {
             res.redirect('/login')
         }

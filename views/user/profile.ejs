@@ -253,10 +253,10 @@
 					<br>
 					<p>Full Name: <span class="text-capitalize"><%= data?.name %></span></p>
 					<br>
-					<p>Email : <span</span><%= data?.email %></p>
+					<p>Email :<%= data?.email %></p>
 					<br>
-					<p>Address : <span></span><%= address[0]?.address.locality %>, <%= address[0]?.address.address %>, <%= address[0]?.address.district %>, <%= address[0]?.address.pincode %></p>
-				  </div>
+					<p>Address :<%= addresses?.address[0].name %>,<%= addresses?.address[0].address %>, <%= addresses?.address[0].district %>, <%= addresses?.address[0].pincode %> </p>
+				</div>
 				  <br>
 				  <form action="/login" method="post">
 					<button style="background-color: #717fe0; width: 60px; height: 40px; color: white; border-radius: 5px;" type="submit">Logout</button>
